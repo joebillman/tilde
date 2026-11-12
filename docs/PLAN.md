@@ -12,7 +12,7 @@ milestone is finished when every criterion passes. Tick boxes as you go.
 | M0 Project setup | done (CI goes green after push) |
 | M1 Core engine | done |
 | M2 Windows integration | done (S1–S8 confirmed by Joe, 2026-11-12) |
-| M3 Tray app and settings | not started |
+| M3 Tray app and settings | code done; awaiting Joe's checks |
 | M4 Hardening | not started |
 | M5 Packaging and Store | not started |
 | M6 School rollout | not started |
@@ -57,13 +57,13 @@ All work is in `Tilde.Core` and its tests. No Windows code.
 
 ## M3. Tray app and settings
 
-- [ ] `SettingsStore` per `ARCHITECTURE.md` §9, with tests for the load/clamp/default logic placed in Core where possible.
-- [ ] `TrayContext` with the full menu from `PRODUCT.md` §6; changes apply immediately and are saved.
-- [ ] Tray icon: a simple tilde glyph, readable on light and dark taskbars, dimmed when disabled. Drawing it at runtime is acceptable for v1.
-- [ ] `AutoStart`, unpackaged implementation (registry `Run` key).
-- [ ] Single-instance mutex.
-- [ ] `HowToWindow` (the table from `PRODUCT.md` §4) shown once on first run; `AboutWindow` with version and the privacy statement from `PRODUCT.md` §8.
-- [ ] Disabling calls `engine.Reset()`.
+- [x] `SettingsStore` per `ARCHITECTURE.md` §9, with tests for the load/clamp/default logic placed in Core where possible.
+- [x] `TrayContext` with the full menu from `PRODUCT.md` §6; changes apply immediately and are saved.
+- [x] Tray icon: a simple tilde glyph, readable on light and dark taskbars, dimmed when disabled. Drawing it at runtime is acceptable for v1.
+- [x] `AutoStart`, unpackaged implementation (registry `Run` key).
+- [x] Single-instance mutex.
+- [x] `HowToWindow` (the table from `PRODUCT.md` §4) shown once on first run; `AboutWindow` with version and the privacy statement from `PRODUCT.md` §8.
+- [x] Disabling calls `engine.Reset()`.
 
 **Done when:** every menu item works, settings survive a restart, a second launch does not create a second icon, and smoke tests S1–S8 still pass.
 
