@@ -60,7 +60,7 @@ clamped to the nearest allowed value; unreadable JSON yields defaults.
 
 ## 3. Smoke tests (human, Notepad, US keyboard)
 
-Run after M2 and again after any change to the hook, translator, or sender.
+Run after M2 and again after any change to the hook, translator, sender, or any P/Invoke declaration, including the soak test below.
 
 | # | Do | See |
 |---|---|---|
@@ -75,6 +75,14 @@ Run after M2 and again after any change to the hook, translator, or sender.
 
 Also confirm once: type a full sentence quickly with many `e`/`a`/`o`
 (`el elefante come manzanas`). No letter may be dropped, doubled, or reordered.
+
+**Soak test.** Leave Tilde running for at least 10 minutes of ordinary typing,
+in Notepad and one other app, using plain letters, held accents, Shift, and
+Caps Lock. Tilde must still be in the tray at the end. A memory bug in native
+interop (`ARCHITECTURE.md` §8.10) can crash the app at a random later moment,
+so S1–S8 passing in a quick run is not enough. If Tilde disappears, check
+Event Viewer → Windows Logs → Application for a `Tilde.exe` error and note the
+exception code.
 
 ## 4. Application matrix (human, before release)
 

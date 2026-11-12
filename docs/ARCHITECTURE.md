@@ -198,6 +198,7 @@ A struct that only declares the keyboard part is too small on 64-bit and
 7. **Games and full-screen apps.** Holding a mapped key (`a`, `e` are common game keys) will trigger a replacement. v1 answer is the tray toggle; M4 adds exclusions.
 8. **Packaged autostart.** Inside an MSIX package, writes to the registry `Run` key are virtualized and have no effect. Use the `StartupTask` API there (§9).
 9. **Remote desktop and virtual machines.** Not a target for v1; behavior there is untested.
+10. **P/Invoke string and character marshaling.** `[DllImport]` defaults to `CharSet.Ansi`, which passes a `char[]` or `string` as 1-byte characters. Every Win32 `...W` or Unicode-only function (`ToUnicodeEx`, `GetModuleHandle`, anything writing UTF-16 into a buffer) must be declared with `CharSet = CharSet.Unicode`. Without it, Windows writes 2-byte characters into a 1-byte buffer and corrupts the heap. The process then dies with `0xC0000374` at some unrelated later moment, which makes the cause hard to see and lets a short test pass by luck. This happened with `ToUnicodeEx` during M2 (fixed in `c8ff9a1`). When adding a native call that takes text, check its `CharSet`, and run the soak test in `TESTING.md` §3.
 
 ## 9. Settings and autostart
 
