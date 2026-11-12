@@ -125,11 +125,14 @@ internal static class NativeMethods
     [DllImport("user32.dll")]
     public static extern short GetKeyState(int nVirtKey);
 
-    [DllImport("user32.dll")]
+    // CharSet.Unicode is essential. Without it .NET passes the char[] as 1-byte
+    // ANSI characters, ToUnicodeEx writes 2-byte UTF-16 characters into it, and
+    // the overrun corrupts the heap. The app then crashes (0xC0000374) at some
+    // later, random moment.
+    [DllImport("user32.dll", CharSet = CharSet.Unicode)]
     public static extern int ToUnicodeEx(
         uint wVirtKey, uint wScanCode, byte[] lpKeyState,
-        [Out, MarshalAs(UnmanagedType.LPArray, SizeParamIndex = 4)] char[] pwszBuff,
-        int cchBuff, uint wFlags, IntPtr dwhkl);
+        [Out] char[] pwszBuff, int cchBuff, uint wFlags, IntPtr dwhkl);
 
     [DllImport("user32.dll")]
     public static extern IntPtr GetKeyboardLayout(uint idThread);
