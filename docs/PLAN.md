@@ -11,7 +11,7 @@ milestone is finished when every criterion passes. Tick boxes as you go.
 |---|---|
 | M0 Project setup | done (CI goes green after push) |
 | M1 Core engine | done |
-| M2 Windows integration | not started |
+| M2 Windows integration | code done; awaiting human smoke tests S1–S8 |
 | M3 Tray app and settings | not started |
 | M4 Hardening | not started |
 | M5 Packaging and Store | not started |
@@ -46,12 +46,12 @@ All work is in `Tilde.Core` and its tests. No Windows code.
 
 ## M2. Windows integration
 
-- [ ] `NativeMethods`: declarations for the hook, `SendInput` (with the full `INPUT` union), `ToUnicodeEx`, key-state, foreground-window, and keyboard-layout calls.
-- [ ] `KeyTranslator` per `ARCHITECTURE.md` §5.
-- [ ] `InputSender` per §7.
-- [ ] `EngineHost` implementing `IEngineHost` with a WinForms `Timer` and `InputSender`.
-- [ ] `KeyboardHook` per §6, including the try/catch and the delegate field.
-- [ ] Temporary `Program.cs` that installs the hook with default settings and runs a message loop (a bare tray icon with Exit is enough).
+- [x] `NativeMethods`: declarations for the hook, `SendInput` (with the full `INPUT` union), `ToUnicodeEx`, key-state, foreground-window, and keyboard-layout calls.
+- [x] `KeyTranslator` per `ARCHITECTURE.md` §5.
+- [x] `InputSender` per §7.
+- [x] `EngineHost` implementing `IEngineHost` with a WinForms `Timer` and `InputSender`.
+- [x] `KeyboardHook` per §6, including the try/catch and the delegate field.
+- [x] Temporary `Program.cs` that installs the hook with default settings and runs a message loop (a bare tray icon with Exit is enough).
 
 **Done when:** a human confirms smoke tests S1–S8 in `TESTING.md` §3 pass in Notepad. An agent cannot confirm this alone.
 
