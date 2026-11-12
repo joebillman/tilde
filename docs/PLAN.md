@@ -12,7 +12,7 @@ milestone is finished when every criterion passes. Tick boxes as you go.
 | M0 Project setup | done (CI goes green after push) |
 | M1 Core engine | done |
 | M2 Windows integration | done (S1–S8 confirmed by Joe, 2026-11-12) |
-| M3 Tray app and settings | code done; awaiting Joe's checks |
+| M3 Tray app and settings | done (checks and S1–S8 confirmed by Joe, 2026-11-12) |
 | M4 Hardening | not started |
 | M5 Packaging and Store | not started |
 | M6 School rollout | not started |

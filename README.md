@@ -18,7 +18,17 @@ records what you type.
 
 ## Status
 
-Planning. No app code yet. The plan and specs are in `docs/`:
+Working from source on Windows (milestones M0–M3). Not yet packaged or in the
+Microsoft Store.
+
+Build and run (needs the .NET 10 SDK):
+
+```
+dotnet test
+dotnet run --project src/Tilde.App
+```
+
+The plan and specs are in `docs/`:
 
 - [Product spec](docs/PRODUCT.md)
 - [Architecture](docs/ARCHITECTURE.md)
