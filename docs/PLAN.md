@@ -10,7 +10,7 @@ milestone is finished when every criterion passes. Tick boxes as you go.
 | Milestone | State |
 |---|---|
 | M0 Project setup | done (CI goes green after push) |
-| M1 Core engine | not started |
+| M1 Core engine | done |
 | M2 Windows integration | not started |
 | M3 Tray app and settings | not started |
 | M4 Hardening | not started |
@@ -36,11 +36,11 @@ human work.
 
 All work is in `Tilde.Core` and its tests. No Windows code.
 
-- [ ] `Settings` model with the defaults and allowed values from `PRODUCT.md` §5.
-- [ ] `Languages/es.json` as an embedded resource, per `ARCHITECTURE.md` §10.
-- [ ] `AccentMap`: load a language, derive uppercase entries, reject multi-unit variants, look up variants for a character.
-- [ ] `IEngineHost` and `HoldEngine` exactly as specified in `ARCHITECTURE.md` §4.
-- [ ] Unit tests for every case listed in `TESTING.md` §2, using a fake host.
+- [x] `Settings` model with the defaults and allowed values from `PRODUCT.md` §5.
+- [x] `Languages/es.json` as an embedded resource, per `ARCHITECTURE.md` §10.
+- [x] `AccentMap`: load a language, derive uppercase entries, reject multi-unit variants, look up variants for a character.
+- [x] `IEngineHost` and `HoldEngine` exactly as specified in `ARCHITECTURE.md` §4.
+- [x] Unit tests for every case listed in `TESTING.md` §2, using a fake host.
 
 **Done when:** every test in `TESTING.md` §2 exists and passes, and `Tilde.Core` has no reference to Windows Forms or P/Invoke.
 

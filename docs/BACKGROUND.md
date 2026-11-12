@@ -111,3 +111,16 @@ it; .NET 10 would otherwise create `.slnx`.
 **2026-11-12. Test project drops `coverlet.collector`.** The xUnit template
 adds it; AGENTS.md allows xUnit only. The test SDK and xUnit runner stay
 because `dotnet test` needs them.
+
+**2026-11-12. First-run flag stored as a hidden setting.** PRODUCT §6 says to
+show How to use once on first run. `Settings.HowToShown` records that in
+`settings.json`; it has no menu entry.
+
+**2026-11-12. Cycle delay clamped to 200–3000 ms.** PRODUCT §5 doesn't give a
+range for the cycle delay because it isn't in the UI. The clamp only guards
+against a hand-edited settings file.
+
+**2026-11-12. Language files also reject combining marks and surrogates.** A
+lone combining accent (U+0301) or half of a surrogate pair is one UTF-16 unit
+but isn't a usable precomposed character, so `AccentMap` rejects it with the
+same error as a two-unit variant.
