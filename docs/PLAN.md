@@ -9,7 +9,7 @@ milestone is finished when every criterion passes. Tick boxes as you go.
 
 | Milestone | State |
 |---|---|
-| M0 Project setup | done (CI goes green after push) |
+| M0 Project setup | done (CI green on first push, 2026-11-12) |
 | M1 Core engine | done |
 | M2 Windows integration | done (S1–S8 confirmed by Joe, 2026-11-12) |
 | M3 Tray app and settings | done (checks and S1–S8 confirmed by Joe, 2026-11-12) |
