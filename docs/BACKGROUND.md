@@ -124,3 +124,10 @@ against a hand-edited settings file.
 lone combining accent (U+0301) or half of a surrogate pair is one UTF-16 unit
 but isn't a usable precomposed character, so `AccentMap` rejects it with the
 same error as a two-unit variant.
+
+**2026-11-12. Development builds don't turn on Start with Windows by
+themselves.** With the spec's default of on, the first `dotnet run` would add
+`bin\Debug\Tilde.exe` to every login. Joe chose: unpackaged builds only write
+the registry `Run` key when the user ticks the menu item, and the checkmark
+reflects whether the key exists. The Store build keeps default-on. PRODUCT §5
+updated.

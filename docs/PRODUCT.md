@@ -102,6 +102,11 @@ Stored per user. All have defaults; the app works with no setup.
 | Cycle delay | 600 ms | not exposed in the UI in v1 |
 | Start with Windows | on | on / off |
 
+"Start with Windows" defaults to on in the installed (Store) build. When Tilde
+is run from source, it never turns this on by itself: the checkmark shows
+whether it is on, and only the tray menu changes it. This keeps a
+development build from adding itself to every login.
+
 ## 6. Tray interface
 
 Tilde has no main window. It shows a tray icon with this menu:
