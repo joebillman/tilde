@@ -10,6 +10,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <!-- The SDK adds this namespace to every app by default. Tilde never uses the
+         network (AGENTS.md Hard rule 1), so remove it to make that plain. -->
+    <Using Remove="System.Net.Http" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\Tilde.Core\Tilde.Core.csproj" />
   </ItemGroup>
 
