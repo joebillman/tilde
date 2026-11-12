@@ -9,7 +9,7 @@ milestone is finished when every criterion passes. Tick boxes as you go.
 
 | Milestone | State |
 |---|---|
-| M0 Project setup | not started |
+| M0 Project setup | done (CI goes green after push) |
 | M1 Core engine | not started |
 | M2 Windows integration | not started |
 | M3 Tray app and settings | not started |
@@ -24,11 +24,11 @@ human work.
 
 ## M0. Project setup
 
-- [ ] Confirm the newest .NET LTS SDK is installed (`dotnet --list-sdks`); if not, tell the human what to install.
-- [ ] Create `Tilde.sln` with `src/Tilde.Core` (class library), `src/Tilde.App` (WinForms, `OutputType` `WinExe`), `tests/Tilde.Core.Tests` (xUnit), laid out as in `ARCHITECTURE.md` §2.
-- [ ] Enable nullable reference types and treat warnings as errors in all three projects (a shared `Directory.Build.props`).
-- [ ] `Tilde.App` references `Tilde.Core`; the test project references `Tilde.Core` only.
-- [ ] Add a GitHub Actions workflow on `windows-latest`: restore, build, test, on push and pull request.
+- [x] Confirm the newest .NET LTS SDK is installed (`dotnet --list-sdks`); if not, tell the human what to install.
+- [x] Create `Tilde.sln` with `src/Tilde.Core` (class library), `src/Tilde.App` (WinForms, `OutputType` `WinExe`), `tests/Tilde.Core.Tests` (xUnit), laid out as in `ARCHITECTURE.md` §2.
+- [x] Enable nullable reference types and treat warnings as errors in all three projects (a shared `Directory.Build.props`).
+- [x] `Tilde.App` references `Tilde.Core`; the test project references `Tilde.Core` only.
+- [x] Add a GitHub Actions workflow on `windows-latest`: restore, build, test, on push and pull request.
 
 **Done when:** `dotnet build` and `dotnet test` succeed on a clean clone (zero tests is fine), and the workflow file is committed. It can only go green after the human pushes; ask them to push and check it.
 

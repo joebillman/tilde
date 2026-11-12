@@ -101,3 +101,13 @@ signing and updates, and the easiest thing for school IT to add to Intune.
 - Capstan: https://github.com/fr2019/capstan
 - macOS accent menu: https://support.apple.com/en-vn/guide/mac-help/mh27474/26/mac/26
 - Windows 11 physical-keyboard autocorrect: https://mashtips.com/?p=105710
+
+**2026-11-12. SDK pinned with `global.json`.** `10.0.100` with
+`rollForward: latestFeature`, so any .NET 10 SDK builds the repo and CI's
+`setup-dotnet` installs the same major version. `Tilde.sln` uses the classic
+`.sln` format (`dotnet new sln --format sln`) because ARCHITECTURE §2 names
+it; .NET 10 would otherwise create `.slnx`.
+
+**2026-11-12. Test project drops `coverlet.collector`.** The xUnit template
+adds it; AGENTS.md allows xUnit only. The test SDK and xUnit runner stay
+because `dotnet test` needs them.

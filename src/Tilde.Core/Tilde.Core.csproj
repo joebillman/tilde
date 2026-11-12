@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <!-- No Windows or UI references here: this project builds and tests on any OS. -->
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <!-- Language files are compiled into the DLL so the app never reads them from disk. -->
+    <EmbeddedResource Include="Languages\*.json" LogicalName="Tilde.Core.Languages.%(Filename)%(Extension)" />
+  </ItemGroup>
+
+</Project>
