@@ -200,3 +200,12 @@ package must be rebuilt and the kit rerun.
 After rebuilding, the third kit run (report 3) reports PASS overall. The DPI
 warning is gone, and only the optional "Blocked executables" false positive
 remains.
+
+**2026-11-13. Version 0.1.0 submitted for Store certification.** Joe
+submitted `TildeKeys_0.1.0.0.msixbundle` with the text in
+`packaging/listing/listing.md`. Choices made in Partner Center: free in all
+markets, public and discoverable; publish held until Joe selects "Publish now";
+OneDrive backup of app data off, to keep the privacy page's "nothing leaves
+your computer" exactly true; keyboard listed as minimum hardware; no Xbox or
+poster art. The certification notes and runFullTrust justification had to fit
+a 500-character limit.

@@ -14,7 +14,7 @@ milestone is finished when every criterion passes. Tick boxes as you go.
 | M2 Windows integration | done (S1–S8 confirmed by Joe, 2026-11-12) |
 | M3 Tray app and settings | done (checks and S1–S8 confirmed by Joe, 2026-11-12) |
 | M4 Hardening | done (3 extra checks skipped by Joe; see TESTING §4) |
-| M5 Packaging and Store | in progress |
+| M5 Packaging and Store | submitted for certification 2026-11-13; awaiting result |
 | M6 School rollout | not started |
 
 **v1 is M0 through M5.** M6 is the reason the project exists but is mostly
@@ -88,9 +88,9 @@ Details in `RELEASE.md`.
 - [x] Replace the runtime-drawn tray icon with one drawn from a vector design, so it stays crisp at 16 px and matches the Store assets.
 - [x] Install the package locally and rerun smoke tests S1–S8 from the installed app.
 - [x] `PRIVACY.md` in the repo root, published at a public URL, stating `PRODUCT.md` §8.
-- [ ] Store listing text and screenshots drafted in `packaging/listing/`.
+- [x] Store listing text and screenshots drafted in `packaging/listing/`.
 - [x] Run the Windows App Certification Kit and fix failures.
-- [ ] Human: submit for certification.
+- [x] Human: submit for certification.
 
 **Done when:** the app is live in the Microsoft Store and installs on a machine that has never had a .NET SDK.
 
