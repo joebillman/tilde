@@ -40,6 +40,10 @@ The plan and specs are in `docs/`:
 AI agents: start with [AGENTS.md](AGENTS.md). The prompt for kicking off a
 session is in [docs/HANDOFF_PROMPT.md](docs/HANDOFF_PROMPT.md).
 
+## Privacy
+
+See [PRIVACY.md](PRIVACY.md).
+
 ## License
 
 MIT. See [LICENSE](LICENSE).

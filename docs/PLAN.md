@@ -87,7 +87,7 @@ Details in `RELEASE.md`.
 - [x] MSIX manifest, visual assets, and a script that publishes and packs x64 and ARM64.
 - [x] Replace the runtime-drawn tray icon with one drawn from a vector design, so it stays crisp at 16 px and matches the Store assets.
 - [ ] Install the package locally and rerun smoke tests S1–S8 from the installed app.
-- [ ] `PRIVACY.md` in the repo root, published at a public URL, stating `PRODUCT.md` §8.
+- [x] `PRIVACY.md` in the repo root, published at a public URL, stating `PRODUCT.md` §8.
 - [ ] Store listing text and screenshots drafted in `packaging/listing/`.
 - [ ] Run the Windows App Certification Kit and fix failures.
 - [ ] Human: submit for certification.
