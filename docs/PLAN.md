@@ -98,7 +98,7 @@ Details in `RELEASE.md`.
 
 Mostly human work; an agent can draft the documents.
 
-- [ ] One-page summary for school IT: what it does, the privacy promises, Store link, source link, how to add it in Intune.
+- [ ] One-page summary for school IT: what it does, the privacy promises, Store link, source link, how to add it in Intune. *Drafted 2026-11-13 (https://claude.ai/artifact/Ro5uupU94dtyimehfVs93t); needs the Store link and contact names before it goes to IT.*
 - [ ] Confirm with IT which Windows edition the student laptops run and how apps get into Company Portal.
 - [ ] A Spanish teacher willing to sponsor the request.
 - [ ] Pilot with one class; collect problems; fix; then wider rollout.
