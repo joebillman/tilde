@@ -14,7 +14,7 @@ internal sealed class ExcludedAppsWindow : InfoWindow
     /// <param name="save">Called with the cleaned-up list when the user clicks Save.</param>
     public ExcludedAppsWindow(IEnumerable<string> current, Action<List<string>> save) : base("Excluded apps")
     {
-        AddText("Tilde stays off while one of these programs is in front, for example a game.");
+        AddText($"{AppInfo.ProductName} stays off while one of these programs is in front, for example a game.");
         AddText("Type one program file name per line, such as minecraft.exe. To find a " +
                 "name, open Task Manager, go to the Details tab, and look in the Name column.");
 

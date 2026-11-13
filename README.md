@@ -1,4 +1,4 @@
-# Tilde
+# Tilde Keys
 
 Press and hold a key to type Spanish accents on Windows.
 
@@ -13,7 +13,7 @@ Press and hold a key to type Spanish accents on Windows.
 Hold Shift (or use Caps Lock) for capitals. A quick tap types the plain letter
 as usual.
 
-Tilde sits in the system tray. It makes no network connections and never
+Tilde Keys sits in the system tray. It makes no network connections and never
 records what you type.
 
 ## Status

@@ -159,3 +159,9 @@ likely.
 **2026-11-12. Store name is "Tilde Keys".** "Tilde" was already taken when
 Joe reserved the name in Partner Center, so the RELEASE §3 fallback was used.
 Package identity values are in `packaging/README.md`.
+
+**2026-11-12. "Tilde Keys" is the user-facing name; code stays "Tilde".**
+Joe's call, so students and IT see one name that matches the Store. User-visible
+strings come from `AppInfo.ProductName`. Internal names (namespace, .exe, the
+settings folder, the mutex, the `Run` value) stay "Tilde" so existing settings
+are kept.

@@ -25,8 +25,8 @@ internal static class Program
         }
         catch (Win32Exception ex)
         {
-            MessageBox.Show("Tilde couldn't start watching the keyboard.\n\n" + ex.Message,
-                            "Tilde", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            MessageBox.Show($"{AppInfo.ProductName} couldn't start watching the keyboard.\n\n" + ex.Message,
+                            AppInfo.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
             return;
         }
 

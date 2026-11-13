@@ -5,14 +5,14 @@ namespace Tilde.App;
 /// <summary>Shows the key table from PRODUCT.md §4, built from the active language map.</summary>
 internal sealed class HowToWindow : InfoWindow
 {
-    public HowToWindow(AccentMap map) : base("How to use Tilde")
+    public HowToWindow(AccentMap map) : base($"How to use {AppInfo.ProductName}")
     {
         AddText("Press and hold a key", 14f, bold: true);
-        AddText("Hold a key for a moment and Tilde swaps the letter for its accent. " +
+        AddText($"Hold a key for a moment and {AppInfo.ProductName} swaps the letter for its accent. " +
                 "A quick tap types the normal letter, just like before.");
         AddControl(BuildTable(map));
         AddText("Hold Shift or use Caps Lock for capitals: Shift + e gives É.");
-        AddText("To turn Tilde off, for example while playing a game, double-click " +
+        AddText($"To turn {AppInfo.ProductName} off, for example while playing a game, double-click " +
                 "its ~ icon in the taskbar tray, or right-click it for the menu.");
         AddOkButton();
     }

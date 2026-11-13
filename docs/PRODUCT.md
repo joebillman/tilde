@@ -1,5 +1,10 @@
 # Tilde product spec
 
+The product is called **Tilde Keys** everywhere users see it: the Store
+listing, Start menu, tray tooltip, and windows ("Tilde" was taken in the
+Store). "Tilde" remains the project and code name and is used for short in
+these docs.
+
 ## 1. The problem
 
 Typing Spanish on a US keyboard in Windows is awkward. The built-in options are

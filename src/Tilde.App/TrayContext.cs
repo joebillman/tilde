@@ -143,8 +143,8 @@ internal sealed class TrayContext : ApplicationContext
         }
         catch (Exception ex) when (ex is UnauthorizedAccessException or System.Security.SecurityException or IOException)
         {
-            MessageBox.Show("Tilde couldn't change the Start with Windows setting.\n\n" + ex.Message,
-                            "Tilde", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            MessageBox.Show($"{AppInfo.ProductName} couldn't change the Start with Windows setting.\n\n" + ex.Message,
+                            AppInfo.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }
         UpdateMenu();
     }
@@ -158,7 +158,7 @@ internal sealed class TrayContext : ApplicationContext
             item.Checked = _settings.HoldDelayMs == ms;
         }
         _tray.Icon = _settings.Enabled ? _onIcon : _offIcon;
-        _tray.Text = _settings.Enabled ? "Tilde: on" : "Tilde: off";
+        _tray.Text = _settings.Enabled ? $"{AppInfo.ProductName}: on" : $"{AppInfo.ProductName}: off";
     }
 
     private void OnSessionSwitch(object? sender, SessionSwitchEventArgs e)
