@@ -13,7 +13,7 @@ milestone is finished when every criterion passes. Tick boxes as you go.
 | M1 Core engine | done |
 | M2 Windows integration | done (S1–S8 confirmed by Joe, 2026-11-12) |
 | M3 Tray app and settings | done (checks and S1–S8 confirmed by Joe, 2026-11-12) |
-| M4 Hardening | in progress |
+| M4 Hardening | in progress: matrix passed; 3 extra checks and exact idle numbers open |
 | M5 Packaging and Store | not started |
 | M6 School rollout | not started |
 

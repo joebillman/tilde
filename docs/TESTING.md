@@ -102,20 +102,20 @@ Breaks typing, with a note.
 
 | Application | Result | Notes |
 |---|---|---|
-| Notepad | | |
-| Microsoft Word (desktop) | | |
-| Word / Google Docs in Edge | | |
-| Google Docs in Chrome | | |
-| Chrome address bar | | expect autocomplete trouble (ARCHITECTURE §8.1) |
-| Edge address bar | | same |
-| Outlook or Gmail compose | | |
-| Microsoft Teams chat | | |
-| Excel cell | | autocomplete may interfere |
-| Windows search / Start menu | | |
-| File Explorer rename | | |
-| Windows Terminal | | |
-| VS Code | | |
-| A password field | | must behave; nothing is logged regardless |
+| Notepad | Pass | Joe, 2026-11-12 |
+| Microsoft Word (desktop) | Pass | Joe, 2026-11-12 |
+| Word / Google Docs in Edge | Pass | Joe, 2026-11-12 |
+| Google Docs in Chrome | Pass | Joe, 2026-11-12 |
+| Chrome address bar | Pass | expect autocomplete trouble (ARCHITECTURE §8.1); no trouble seen; Joe, 2026-11-12 |
+| Edge address bar | Pass | same; no trouble seen; Joe, 2026-11-12 |
+| Outlook or Gmail compose | Pass | Joe, 2026-11-12 |
+| Microsoft Teams chat | Pass | Joe, 2026-11-12 |
+| Excel cell | Pass | autocomplete may interfere; no trouble seen; Joe, 2026-11-12 |
+| Windows search / Start menu | Pass | Joe, 2026-11-12 |
+| File Explorer rename | Pass | Joe, 2026-11-12 |
+| Windows Terminal | Pass | Joe, 2026-11-12 |
+| VS Code | Pass | Joe, 2026-11-12 |
+| A password field | Pass | must behave; nothing is logged regardless; Joe, 2026-11-12 |
 
 Extra checks:
 
@@ -124,4 +124,4 @@ Extra checks:
 - Excluded apps (R13): with `notepad.exe` listed, holding `e` in Notepad repeats normally and other apps still get `é`; removing it takes effect without a restart; switching to an excluded app mid-hold types nothing more. **Pass** (Joe, 2026-11-12).
 - Lock and unlock the PC, sleep and wake: holding `e` still works afterward. **Pass** (Joe, 2026-11-12, Notepad).
 - An app running as administrator: Tilde does nothing there, and typing is normal.
-- Task Manager: idle CPU 0%, memory recorded here: ______.
+- Task Manager: idle CPU 0%, memory recorded here: ______. Joe reports both "really low" (2026-11-12); exact Release-build numbers on a school-type laptop not yet recorded. For reference, a Debug build on Joe's PC idled at 0.05% of one core over 60 s, 19.6 MB private memory, 68 MB working set.
