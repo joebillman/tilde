@@ -110,4 +110,9 @@ key for about a second: the `e` becomes `é`. Hold `u` to cycle ú → ü → u.
 Hold Shift+/ for ¿. A quick tap types a normal letter. Right-click the tray
 icon for settings.
 
+The Windows App Certification Kit's optional "Blocked executables" test lists
+references to process-launch APIs and strings such as "cmd" inside the .NET
+runtime files that ship with every self-contained .NET app. Tilde Keys itself
+never starts another process.
+
 Source code: https://github.com/joebillman/tilde

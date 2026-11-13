@@ -12,6 +12,13 @@
     <Version>0.1.0</Version>
     <!-- Generated from TildeGlyph by packaging/AssetGenerator. -->
     <ApplicationIcon>Tilde.ico</ApplicationIcon>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+    <!-- Match the manifest: draw at each monitor's real scaling. -->
+    <ApplicationHighDpiMode>PerMonitorV2</ApplicationHighDpiMode>
+    <!-- WinForms prefers DPI settings only in the project, not the manifest
+         (WFO0003). The Store's certification kit reads only the manifest, so
+         both are needed. They say the same thing. -->
+    <NoWarn>$(NoWarn);WFO0003</NoWarn>
   </PropertyGroup>
 
   <ItemGroup>

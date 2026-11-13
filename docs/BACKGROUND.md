@@ -181,3 +181,12 @@ bundles with MakeAppx. It runs from a terminal with only the .NET SDK and the
 Windows SDK, is short enough to read, and doesn't need Visual Studio, as
 RELEASE.md §4 suggested. All image scales go in the main package; there are no
 separate resource packs.
+
+**2026-11-12. First certification kit run: passed with warnings.** The
+optional "Blocked executables" test flagged references inside the bundled .NET
+runtime (strings such as "cmd" and process-launch APIs). Tilde never starts a
+process, so this is explained in the certification notes rather than changed.
+The DPI-awareness warning was fixed with an embedded `app.manifest` declaring
+PerMonitorV2, plus `asInvoker` to state Hard rule 4 explicitly. WinForms'
+WFO0003 rule, which prefers DPI settings in the project only, is suppressed
+because the kit reads only the manifest; both settings agree.
