@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <!-- Build-time tool: draws the Store images and the .ico from the same
+       TildeGlyph the app uses. Not shipped, and not part of Tilde.sln.
+       To run it, see packaging/README.md. -->
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net10.0-windows</TargetFramework>
+    <UseWindowsForms>true</UseWindowsForms>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="..\..\src\Tilde.App\TildeGlyph.cs" Link="TildeGlyph.cs" />
+  </ItemGroup>
+
+</Project>

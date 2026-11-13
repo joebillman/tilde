@@ -10,6 +10,8 @@
     <AssemblyName>Tilde</AssemblyName>
     <RootNamespace>Tilde.App</RootNamespace>
     <Version>0.1.0</Version>
+    <!-- Generated from TildeGlyph by packaging/AssetGenerator. -->
+    <ApplicationIcon>Tilde.ico</ApplicationIcon>
   </PropertyGroup>
 
   <ItemGroup>
