@@ -83,13 +83,13 @@ Details in `RELEASE.md`.
 
 - [x] Human: create the Microsoft Store developer account and reserve the app name. Record the package identity values in `packaging/README.md`.
 - [x] `AutoStart`, packaged implementation (`StartupTask`), selected automatically.
-- [ ] Confirm the installed (Store) build has Start with Windows on by default (`PRODUCT.md` §5); development builds deliberately do not.
+- [x] Confirm the installed (Store) build has Start with Windows on by default (`PRODUCT.md` §5); development builds deliberately do not.
 - [x] MSIX manifest, visual assets, and a script that publishes and packs x64 and ARM64.
 - [x] Replace the runtime-drawn tray icon with one drawn from a vector design, so it stays crisp at 16 px and matches the Store assets.
-- [ ] Install the package locally and rerun smoke tests S1–S8 from the installed app.
+- [x] Install the package locally and rerun smoke tests S1–S8 from the installed app.
 - [x] `PRIVACY.md` in the repo root, published at a public URL, stating `PRODUCT.md` §8.
 - [ ] Store listing text and screenshots drafted in `packaging/listing/`.
-- [ ] Run the Windows App Certification Kit and fix failures.
+- [x] Run the Windows App Certification Kit and fix failures.
 - [ ] Human: submit for certification.
 
 **Done when:** the app is live in the Microsoft Store and installs on a machine that has never had a .NET SDK.

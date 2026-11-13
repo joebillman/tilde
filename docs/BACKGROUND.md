@@ -190,3 +190,9 @@ The DPI-awareness warning was fixed with an embedded `app.manifest` declaring
 PerMonitorV2, plus `asInvoker` to state Hard rule 4 explicitly. WinForms'
 WFO0003 rule, which prefers DPI settings in the project only, is suppressed
 because the kit reads only the manifest; both settings agree.
+
+**2026-11-12. Installed package verified.** Joe installed the x64 package
+locally. S1–S8, Start with Windows on by default (and off after unticking),
+the About version, and the windows after the DPI change all passed. The
+certification kit rerun passed; only the known "Blocked executables" false
+positive remains.
