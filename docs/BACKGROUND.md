@@ -173,3 +173,11 @@ SDK fetch Microsoft's Windows API reference pack at restore; there is still no
 NuGet package in the project. Minimum Windows version: 10 2004 (19041).
 `AutoStart.Create()` picks the StartupTask version when the process has
 package identity, otherwise the registry version.
+
+**2026-11-12. Packages built with MakeAppx from a script, not a Visual Studio
+packaging project.** `packaging/build-package.ps1` publishes each
+architecture, writes the manifest, indexes images with MakePri, and packs and
+bundles with MakeAppx. It runs from a terminal with only the .NET SDK and the
+Windows SDK, is short enough to read, and doesn't need Visual Studio, as
+RELEASE.md §4 suggested. All image scales go in the main package; there are no
+separate resource packs.

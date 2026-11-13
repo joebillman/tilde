@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Package manifest for the Microsoft Store build (RELEASE.md §4).
+  build-package.ps1 fills in $VERSION$ and $ARCH$ for each architecture.
+  Identity values come from Partner Center; see packaging/README.md.
+-->
+<Package
+  xmlns="http://schemas.microsoft.com/appx/manifest/foundation/windows10"
+  xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10"
+  xmlns:desktop="http://schemas.microsoft.com/appx/manifest/desktop/windows10"
+  xmlns:rescap="http://schemas.microsoft.com/appx/manifest/foundation/windows10/restrictedcapabilities"
+  IgnorableNamespaces="uap desktop rescap">
+
+  <Identity
+    Name="JoeBillman.TildeKeys"
+    Publisher="CN=20C95762-C82C-4A5F-9AA1-6A448B472FFB"
+    Version="$VERSION$"
+    ProcessorArchitecture="$ARCH$" />
+
+  <Properties>
+    <DisplayName>Tilde Keys</DisplayName>
+    <PublisherDisplayName>Joe Billman</PublisherDisplayName>
+    <Logo>Assets\StoreLogo.png</Logo>
+  </Properties>
+
+  <!-- Windows 10 2004 or later, matching the app's target framework. -->
+  <Dependencies>
+    <TargetDeviceFamily Name="Windows.Desktop" MinVersion="10.0.19041.0" MaxVersionTested="10.0.26100.0" />
+  </Dependencies>
+
+  <Resources>
+    <Resource Language="en-us" />
+  </Resources>
+
+  <Applications>
+    <Application Id="TildeKeys" Executable="Tilde.exe" EntryPoint="Windows.FullTrustApplication">
+      <uap:VisualElements
+        DisplayName="Tilde Keys"
+        Description="Press and hold a key to type Spanish accents."
+        BackgroundColor="transparent"
+        Square150x150Logo="Assets\Square150x150Logo.png"
+        Square44x44Logo="Assets\Square44x44Logo.png" />
+
+      <Extensions>
+        <!-- Start with Windows. Enabled="true" makes it on by default once
+             installed (PRODUCT.md §5). TaskId must match PackagedAutoStart.TaskId. -->
+        <desktop:Extension Category="windows.startupTask" Executable="Tilde.exe" EntryPoint="Windows.FullTrustApplication">
+          <desktop:StartupTask TaskId="TildeKeysStartup" Enabled="true" DisplayName="Tilde Keys" />
+        </desktop:Extension>
+      </Extensions>
+    </Application>
+  </Applications>
+
+  <Capabilities>
+    <!-- Required for every packaged desktop (Win32) app. No other capabilities:
+         in particular, no internetClient (AGENTS.md Hard rule 1). -->
+    <rescap:Capability Name="runFullTrust" />
+  </Capabilities>
+</Package>

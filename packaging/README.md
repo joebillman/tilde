@@ -33,3 +33,35 @@ the repository root:
 ```
 dotnet run --project packaging/AssetGenerator
 ```
+
+## Building the package
+
+Needs the .NET 10 SDK and the Windows SDK (for `MakeAppx.exe` and
+`MakePri.exe`). From the repository root:
+
+```
+pwsh packaging/build-package.ps1
+```
+
+This writes to `packaging/out/` (not committed):
+
+- `msix/TildeKeys_<version>_x64.msix` and `..._arm64.msix`
+- `TildeKeys_<version>.msixbundle`: the file to upload to Partner Center
+
+The version comes from `<Version>` in `src/Tilde.App/Tilde.App.csproj`, with
+`.0` added. Raise it before every Store update.
+
+## Testing the package on this PC
+
+Turn on Developer Mode (Settings > System > For developers), then:
+
+```
+pwsh packaging/build-package.ps1 -Register
+```
+
+This installs the x64 package folder without signing. Exit any copy of Tilde
+started with `dotnet run` first. To remove the test install:
+
+```
+Get-AppxPackage JoeBillman.TildeKeys | Remove-AppxPackage
+```
