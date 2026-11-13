@@ -2,7 +2,10 @@
 
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
-    <TargetFramework>net10.0-windows</TargetFramework>
+    <!-- The Windows version in the target gives access to Windows APIs such as
+         StartupTask, which the Store build needs for Start with Windows. -->
+    <TargetFramework>net10.0-windows10.0.19041.0</TargetFramework>
+    <SupportedOSPlatformVersion>10.0.19041.0</SupportedOSPlatformVersion>
     <UseWindowsForms>true</UseWindowsForms>
     <AssemblyName>Tilde</AssemblyName>
     <RootNamespace>Tilde.App</RootNamespace>

@@ -165,3 +165,11 @@ Joe's call, so students and IT see one name that matches the Store. User-visible
 strings come from `AppInfo.ProductName`. Internal names (namespace, .exe, the
 settings folder, the mutex, the `Run` value) stay "Tilde" so existing settings
 are kept.
+
+**2026-11-12. App targets `net10.0-windows10.0.19041.0`.** Approved by Joe.
+The Store build needs Windows' `StartupTask` API for Start with Windows, which
+the plain `net10.0-windows` target can't reach. The versioned target makes the
+SDK fetch Microsoft's Windows API reference pack at restore; there is still no
+NuGet package in the project. Minimum Windows version: 10 2004 (19041).
+`AutoStart.Create()` picks the StartupTask version when the process has
+package identity, otherwise the registry version.

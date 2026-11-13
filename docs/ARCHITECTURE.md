@@ -27,7 +27,7 @@ tilde/
       AccentMap.cs         # loads a language file, answers "variants for this char?"
       Languages/es.json    # embedded resource (§10)
       Settings.cs          # settings model and defaults
-    Tilde.App/             # net10.0-windows. WinForms + Win32.
+    Tilde.App/             # net10.0-windows10.0.19041.0. WinForms + Win32.
       Program.cs           # single-instance check, starts TrayContext
       TrayContext.cs       # ApplicationContext: tray icon, menu, wiring
       KeyboardHook.cs      # WH_KEYBOARD_LL install/remove and callback (§6)

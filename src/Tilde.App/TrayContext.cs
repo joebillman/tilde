@@ -141,7 +141,8 @@ internal sealed class TrayContext : ApplicationContext
             _settings.StartWithWindows = turnOn;
             SettingsStore.Save(_settings);
         }
-        catch (Exception ex) when (ex is UnauthorizedAccessException or System.Security.SecurityException or IOException)
+        catch (Exception ex) when (ex is UnauthorizedAccessException or System.Security.SecurityException
+                                      or IOException or InvalidOperationException)
         {
             MessageBox.Show($"{AppInfo.ProductName} couldn't change the Start with Windows setting.\n\n" + ex.Message,
                             AppInfo.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Warning);

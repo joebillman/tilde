@@ -174,6 +174,19 @@ internal static class NativeMethods
     [return: MarshalAs(UnmanagedType.Bool)]
     public static extern bool QueryFullProcessImageName(IntPtr hProcess, uint dwFlags, [Out] char[] lpExeName, ref uint lpdwSize);
 
+    // ---- Is Tilde running from an installed (MSIX/Store) package? ----
+
+    public const int APPMODEL_ERROR_NO_PACKAGE = 15700;
+
+    /// <summary>
+    /// Called with a zero length and no buffer, this only asks whether the
+    /// process has package identity: it returns APPMODEL_ERROR_NO_PACKAGE when
+    /// running from source, and "buffer too small" when packaged. Passing no
+    /// buffer avoids any string marshaling (ARCHITECTURE.md §8.10).
+    /// </summary>
+    [DllImport("kernel32.dll")]
+    public static extern int GetCurrentPackageFullName(ref uint packageFullNameLength, IntPtr packageFullName);
+
     // ---- Tray icon ----
 
     [DllImport("user32.dll")]
