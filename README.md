@@ -18,10 +18,9 @@ records what you type.
 
 ## Status
 
-Working from source on Windows (milestones M0–M3). Not yet packaged or in the
-Microsoft Store.
+**Get it from the Microsoft Store:** https://apps.microsoft.com/detail/9P00H3RVW12L
 
-Build and run (needs the .NET 10 SDK):
+To build from source instead (needs the .NET 10 SDK):
 
 ```
 dotnet test

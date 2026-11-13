@@ -209,3 +209,7 @@ OneDrive backup of app data off, to keep the privacy page's "nothing leaves
 your computer" exactly true; keyboard listed as minimum hardware; no Xbox or
 poster art. The certification notes and runFullTrust justification had to fit
 a 500-character limit.
+
+**2026-11-13. Version 0.1.0 is live in the Microsoft Store.** Store ID
+`9P00H3RVW12L`, https://apps.microsoft.com/detail/9P00H3RVW12L. Certification
+passed and Joe published it.

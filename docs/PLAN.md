@@ -14,7 +14,7 @@ milestone is finished when every criterion passes. Tick boxes as you go.
 | M2 Windows integration | done (S1–S8 confirmed by Joe, 2026-11-12) |
 | M3 Tray app and settings | done (checks and S1–S8 confirmed by Joe, 2026-11-12) |
 | M4 Hardening | done (3 extra checks skipped by Joe; see TESTING §4) |
-| M5 Packaging and Store | submitted for certification 2026-11-13; awaiting result |
+| M5 Packaging and Store | live in the Store (9P00H3RVW12L); last check: install on a PC without .NET |
 | M6 School rollout | not started |
 
 **v1 is M0 through M5.** M6 is the reason the project exists but is mostly
@@ -98,7 +98,7 @@ Details in `RELEASE.md`.
 
 Mostly human work; an agent can draft the documents.
 
-- [ ] One-page summary for school IT: what it does, the privacy promises, Store link, source link, how to add it in Intune. *Drafted 2026-11-13 (https://claude.ai/artifact/Ro5uupU94dtyimehfVs93t); needs the Store link and contact names before it goes to IT.*
+- [ ] One-page summary for school IT: what it does, the privacy promises, Store link, source link, how to add it in Intune. *Drafted 2026-11-13 (https://claude.ai/artifact/Ro5uupU94dtyimehfVs93t); Store link added; needs contact names before it goes to IT.*
 - [ ] Confirm with IT which Windows edition the student laptops run and how apps get into Company Portal.
 - [ ] A Spanish teacher willing to sponsor the request.
 - [ ] Pilot with one class; collect problems; fix; then wider rollout.

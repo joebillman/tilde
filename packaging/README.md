@@ -15,6 +15,8 @@ installed package's manifest.
 | `Package/Identity/Publisher` | `CN=20C95762-C82C-4A5F-9AA1-6A448B472FFB` |
 | `Package/Properties/PublisherDisplayName` | `Joe Billman` |
 | Reserved Store name | **Tilde Keys** ("Tilde" was taken) |
+| Store ID | `9P00H3RVW12L` |
+| Store page | https://apps.microsoft.com/detail/9P00H3RVW12L |
 
 ## Artwork
 
