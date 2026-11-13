@@ -148,3 +148,10 @@ callback, out of context so nothing is injected into other apps, checks the
 program name when the foreground window changes and keeps only a yes/no flag;
 the name is compared with the list and not stored. A picker of running apps
 was considered and left for later.
+
+**2026-11-12. M4 closed without three extra checks.** Joe chose not to run
+the US-International layout, Spanish layout, and run-as-administrator checks
+in TESTING §4 for now. All 14 apps in the matrix passed, and idle use was
+reported as very low. The dead-key check matters most if the school uses
+US-International keyboards, so run it before the pilot (M6) if that is
+likely.

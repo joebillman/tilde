@@ -13,8 +13,8 @@ milestone is finished when every criterion passes. Tick boxes as you go.
 | M1 Core engine | done |
 | M2 Windows integration | done (S1–S8 confirmed by Joe, 2026-11-12) |
 | M3 Tray app and settings | done (checks and S1–S8 confirmed by Joe, 2026-11-12) |
-| M4 Hardening | in progress: matrix passed; 3 extra checks and exact idle numbers open |
-| M5 Packaging and Store | not started |
+| M4 Hardening | done (3 extra checks skipped by Joe; see TESTING §4) |
+| M5 Packaging and Store | in progress |
 | M6 School rollout | not started |
 
 **v1 is M0 through M5.** M6 is the reason the project exists but is mostly
@@ -69,10 +69,10 @@ All work is in `Tilde.Core` and its tests. No Windows code.
 
 ## M4. Hardening
 
-- [ ] Run the full application matrix in `TESTING.md` §4 (human). Fix what can be fixed; list the rest under Known issues in `README.md`.
+- [x] Run the full application matrix in `TESTING.md` §4 (human). Fix what can be fixed; list the rest under Known issues in `README.md`.
 - [x] Reinstall the hook on session unlock and resume from sleep (`SystemEvents.SessionSwitch`, `PowerModeChanged`).
 - [x] Excluded apps: a list of process names in settings for which Tilde stays idle, editable from the tray (a simple text window is enough). Ask the human before designing anything more elaborate.
-- [ ] Idle memory and CPU check: record working-set size and confirm no measurable CPU while not typing. The target machines are small school laptops.
+- [x] Idle memory and CPU check: record working-set size and confirm no measurable CPU while not typing. The target machines are small school laptops.
 - [x] Review the code against the Hard rules in `AGENTS.md`: search for any networking, file writes other than settings, logging, or clipboard use.
 
 **Done when:** the matrix results are recorded in `docs/TESTING.md` §4, no item is marked "breaks typing", and the review finds nothing.

@@ -119,9 +119,9 @@ Breaks typing, with a note.
 
 Extra checks:
 
-- With the US-International layout active, `'` then `e` still gives `é` (dead keys intact), and holding `e` also gives `é`.
-- With a Spanish keyboard layout active, Tilde does no harm.
+- With the US-International layout active, `'` then `e` still gives `é` (dead keys intact), and holding `e` also gives `é`. *Not run for v1 (Joe's call, 2026-11-12).*
+- With a Spanish keyboard layout active, Tilde does no harm. *Not run for v1 (Joe's call, 2026-11-12).*
 - Excluded apps (R13): with `notepad.exe` listed, holding `e` in Notepad repeats normally and other apps still get `é`; removing it takes effect without a restart; switching to an excluded app mid-hold types nothing more. **Pass** (Joe, 2026-11-12).
 - Lock and unlock the PC, sleep and wake: holding `e` still works afterward. **Pass** (Joe, 2026-11-12, Notepad).
-- An app running as administrator: Tilde does nothing there, and typing is normal.
+- An app running as administrator: Tilde does nothing there, and typing is normal. *Not run for v1 (Joe's call, 2026-11-12).*
 - Task Manager: idle CPU 0%, memory recorded here: ______. Joe reports both "really low" (2026-11-12); exact Release-build numbers on a school-type laptop not yet recorded. For reference, a Debug build on Joe's PC idled at 0.05% of one core over 60 s, 19.6 MB private memory, 68 MB working set.
