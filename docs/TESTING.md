@@ -121,6 +121,7 @@ Extra checks:
 
 - With the US-International layout active, `'` then `e` still gives `é` (dead keys intact), and holding `e` also gives `é`.
 - With a Spanish keyboard layout active, Tilde does no harm.
-- Lock and unlock the PC, sleep and wake: holding `e` still works afterward.
+- Excluded apps (R13): with `notepad.exe` listed, holding `e` in Notepad repeats normally and other apps still get `é`; removing it takes effect without a restart; switching to an excluded app mid-hold types nothing more. **Pass** (Joe, 2026-11-12).
+- Lock and unlock the PC, sleep and wake: holding `e` still works afterward. **Pass** (Joe, 2026-11-12, Notepad).
 - An app running as administrator: Tilde does nothing there, and typing is normal.
 - Task Manager: idle CPU 0%, memory recorded here: ______.
