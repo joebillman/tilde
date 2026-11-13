@@ -155,3 +155,7 @@ in TESTING §4 for now. All 14 apps in the matrix passed, and idle use was
 reported as very low. The dead-key check matters most if the school uses
 US-International keyboards, so run it before the pilot (M6) if that is
 likely.
+
+**2026-11-12. Store name is "Tilde Keys".** "Tilde" was already taken when
+Joe reserved the name in Partner Center, so the RELEASE §3 fallback was used.
+Package identity values are in `packaging/README.md`.

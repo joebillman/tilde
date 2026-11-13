@@ -81,7 +81,7 @@ All work is in `Tilde.Core` and its tests. No Windows code.
 
 Details in `RELEASE.md`.
 
-- [ ] Human: create the Microsoft Store developer account and reserve the app name. Record the package identity values in `packaging/README.md`.
+- [x] Human: create the Microsoft Store developer account and reserve the app name. Record the package identity values in `packaging/README.md`.
 - [ ] `AutoStart`, packaged implementation (`StartupTask`), selected automatically.
 - [ ] Confirm the installed (Store) build has Start with Windows on by default (`PRODUCT.md` §5); development builds deliberately do not.
 - [ ] MSIX manifest, visual assets, and a script that publishes and packs x64 and ARM64.
