@@ -23,6 +23,7 @@ internal sealed class TrayContext : ApplicationContext
     private readonly EngineHost _host;
     private readonly HoldEngine _engine;
     private readonly KeyboardHook _hook;
+    private readonly ForegroundWatcher _foreground;
     private readonly IAutoStart _autoStart;
 
     private readonly Icon _onIcon = TrayIcons.Create(enabled: true);
@@ -36,6 +37,7 @@ internal sealed class TrayContext : ApplicationContext
 
     private HowToWindow? _howTo;
     private AboutWindow? _about;
+    private ExcludedAppsWindow? _excludedApps;
 
     public TrayContext()
     {
@@ -46,7 +48,15 @@ internal sealed class TrayContext : ApplicationContext
         _host = new EngineHost();
         _engine = new HoldEngine(_host, _map, _settings);
         _host.TimerFired += _engine.OnTimer;
-        _hook = new KeyboardHook(_engine, new KeyTranslator(), _map, () => _settings.Enabled);
+
+        // R13: when an excluded program comes to the front, end any hold so
+        // nothing more is typed into it.
+        _foreground = new ForegroundWatcher(_settings, enteredExcludedApp: _engine.Reset);
+        _foreground.Start();
+
+        // Tilde acts only when it is enabled (R11) and the program in front is not excluded (R13).
+        _hook = new KeyboardHook(_engine, new KeyTranslator(), _map,
+                                 isEnabled: () => _settings.Enabled && !_foreground.ForegroundIsExcluded);
         _hook.Install();
 
         // ---- Menu ----
@@ -70,6 +80,7 @@ internal sealed class TrayContext : ApplicationContext
 
         _autoStartItem = new ToolStripMenuItem("Start with Windows", null, (_, _) => ToggleAutoStart());
         menu.Items.Add(_autoStartItem);
+        menu.Items.Add("Excluded apps…", null, (_, _) => ShowExcludedApps());
 
         menu.Items.Add(new ToolStripSeparator());
         menu.Items.Add("How to use", null, (_, _) => ShowHowTo());
@@ -187,6 +198,20 @@ internal sealed class TrayContext : ApplicationContext
         }
     }
 
+    private void ShowExcludedApps()
+    {
+        if (_excludedApps is null || _excludedApps.IsDisposed)
+        {
+            _excludedApps = new ExcludedAppsWindow(_settings.ExcludedApps, list =>
+            {
+                _settings.ExcludedApps = list;
+                SettingsStore.Save(_settings);
+                _foreground.Refresh(); // apply now, in case the program in front was just added
+            });
+        }
+        _excludedApps.ShowAndActivate();
+    }
+
     private void ShowHowTo()
     {
         if (_howTo is null || _howTo.IsDisposed)
@@ -212,6 +237,8 @@ internal sealed class TrayContext : ApplicationContext
         SystemEvents.PowerModeChanged -= OnPowerModeChanged;
         _engine.Reset();
         _hook.Dispose();
+        _foreground.Dispose();
+        _excludedApps?.Dispose();
         _tray.Visible = false; // otherwise a dead icon lingers until the mouse passes over it
         _tray.Dispose();
         _howTo?.Dispose();

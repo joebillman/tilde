@@ -71,7 +71,7 @@ All work is in `Tilde.Core` and its tests. No Windows code.
 
 - [ ] Run the full application matrix in `TESTING.md` §4 (human). Fix what can be fixed; list the rest under Known issues in `README.md`.
 - [x] Reinstall the hook on session unlock and resume from sleep (`SystemEvents.SessionSwitch`, `PowerModeChanged`).
-- [ ] Excluded apps: a list of process names in settings for which Tilde stays idle, editable from the tray (a simple text window is enough). Ask the human before designing anything more elaborate.
+- [x] Excluded apps: a list of process names in settings for which Tilde stays idle, editable from the tray (a simple text window is enough). Ask the human before designing anything more elaborate.
 - [ ] Idle memory and CPU check: record working-set size and confirm no measurable CPU while not typing. The target machines are small school laptops.
 - [x] Review the code against the Hard rules in `AGENTS.md`: search for any networking, file writes other than settings, logging, or clipboard use.
 

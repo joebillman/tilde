@@ -138,3 +138,13 @@ launches, and elevation. Only the settings file and the startup `Run` key are
 written; nothing else was found. Two in-memory leftovers were tightened: the
 key translator now clears its character buffer after each call, and the engine
 forgets the held key code when a hold ends. Neither was ever written anywhere.
+
+**2026-11-12. Excluded apps (R13), as Joe chose.** A new behavior rule, R13:
+while a listed program is in front, Tilde acts as if disabled. The list starts
+empty and holds program file names (`minecraft.exe`), edited one per line in a
+plain text window. To keep the keyboard hook fast, Tilde does not look up the
+program on each key press. A `SetWinEventHook(EVENT_SYSTEM_FOREGROUND)`
+callback, out of context so nothing is injected into other apps, checks the
+program name when the foreground window changes and keeps only a yes/no flag;
+the name is compared with the list and not stored. A picker of running apps
+was considered and left for later.

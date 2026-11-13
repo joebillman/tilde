@@ -72,6 +72,11 @@ about typing.
 own output, remote-control tools, on-screen keyboards) never start or affect a
 hold.
 
+**R13. Excluded apps are untouched.** While the foreground window belongs to a
+program on the exclusion list (§5), Tilde behaves as if disabled (R11). If a
+hold is in progress when such a program comes to the front, the hold ends and
+nothing more is typed.
+
 ## 4. Spanish map
 
 | Typed | Variants, in order |
@@ -101,6 +106,11 @@ Stored per user. All have defaults; the app works with no setup.
 | Hold delay | 500 ms | 300 (Short), 500 (Medium), 800 (Long) |
 | Cycle delay | 600 ms | not exposed in the UI in v1 |
 | Start with Windows | on | on / off |
+| Excluded apps | empty | program file names, such as `minecraft.exe`; up to 100 |
+
+Excluded app names are matched without regard to case, and `.exe` is added if
+it is missing. Tilde compares the name of the program in front with this list
+and keeps nothing else about it.
 
 "Start with Windows" defaults to on in the installed (Store) build. When Tilde
 is run from source, it never turns this on by itself: the checkmark shows
@@ -115,6 +125,7 @@ Tilde has no main window. It shows a tray icon with this menu:
 - **Language** → Spanish (checked).
 - **Hold delay** → Short / Medium / Long.
 - **Start with Windows** (checkmark toggle).
+- **Excluded apps…** opens a small window with a text box, one program file name per line, and Save / Cancel.
 - **How to use** opens a small window showing the table from §4.
 - **About** shows the version and the privacy statement from §8.
 - **Exit**.
@@ -128,7 +139,7 @@ window once.
 - A visual picker popup.
 - Auto-correcting whole words (`tambien` → `también`). Considered and parked; see `BACKGROUND.md`.
 - Mac or Linux versions.
-- Per-app exclusion lists (planned for hardening; see `PLAN.md` M4).
+- A picker for excluded apps. v1 has a plain list of program file names (§5, §6).
 
 ## 8. Privacy promises
 
@@ -145,4 +156,4 @@ listing. They are also hard rules for anyone changing the code.
 - **Mapped keys lose auto-repeat.** You cannot hold `a` to type `aaaa`, or `!` to type `!!!!`, while Tilde is enabled. This is the cost of R3.
 - **Elevated apps are out of reach.** Windows hides keystrokes in apps running as administrator from non-elevated apps, so Tilde does nothing there.
 - **Replacement relies on Backspace.** Where an app reacts to a typed letter by selecting or inserting extra text (browser address-bar autocomplete, some code editors), the result can be wrong. See `ARCHITECTURE.md` §8.
-- **Games.** Holding a mapped key in a game would trigger a replacement. Until per-app exclusions exist, users disable Tilde from the tray.
+- **Games.** Holding a mapped key in a game would trigger a replacement. Users add the game to Excluded apps (R13) or disable Tilde from the tray.

@@ -26,6 +26,9 @@ public sealed class Settings
     public int CycleDelayMs { get; set; } = DefaultCycleDelayMs;
     public bool StartWithWindows { get; set; } = true;
 
+    /// <summary>Programs Tilde stays out of (R13), as lowercase file names like "minecraft.exe".</summary>
+    public List<string> ExcludedApps { get; set; } = [];
+
     /// <summary>True once the How to use window has been shown on first run.</summary>
     public bool HowToShown { get; set; }
 
@@ -38,6 +41,7 @@ public sealed class Settings
         {
             Language = DefaultLanguage;
         }
+        ExcludedApps = ExclusionList.Normalize(ExcludedApps); // also turns a null list into an empty one
         return this;
     }
 

@@ -58,6 +58,17 @@ AccentMap tests:
 Settings tests: defaults match `PRODUCT.md` §5; an out-of-range hold delay is
 clamped to the nearest allowed value; unreadable JSON yields defaults.
 
+Exclusion list tests (R13):
+
+| # | Scenario | Expect |
+|---|---|---|
+| X1 | Names are normalized | `Minecraft.EXE`, ` minecraft `, `C:\Games\minecraft.exe` all become `minecraft.exe` |
+| X2 | Parsing the text box | Blank lines dropped, duplicates removed, order kept |
+| X3 | Bad names | Names with `< > : " \| ? *` are dropped |
+| X4 | Lookup | Matches the program name in any case; no match for `null` or an unlisted name |
+| X5 | Limit | More than 100 entries keeps the first 100 |
+| X6 | Settings file | Missing or `null` list loads as empty; the list survives a save and load |
+
 ## 3. Smoke tests (human, Notepad, US keyboard)
 
 Run after M2 and again after any change to the hook, translator, sender, or any P/Invoke declaration, including the soak test below.
