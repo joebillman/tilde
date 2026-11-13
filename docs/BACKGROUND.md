@@ -197,3 +197,6 @@ and the About version passed. Correction (same day): that installed copy
 predated the DPI manifest, so the windows were not yet checked with the DPI
 change, and a second certification kit run still showed the DPI warning. The
 package must be rebuilt and the kit rerun.
+After rebuilding, the third kit run (report 3) reports PASS overall. The DPI
+warning is gone, and only the optional "Blocked executables" false positive
+remains.
