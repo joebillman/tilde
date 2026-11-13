@@ -89,7 +89,7 @@ Details in `RELEASE.md`.
 - [x] Install the package locally and rerun smoke tests S1–S8 from the installed app.
 - [x] `PRIVACY.md` in the repo root, published at a public URL, stating `PRODUCT.md` §8.
 - [ ] Store listing text and screenshots drafted in `packaging/listing/`.
-- [x] Run the Windows App Certification Kit and fix failures.
+- [ ] Run the Windows App Certification Kit and fix failures.
 - [ ] Human: submit for certification.
 
 **Done when:** the app is live in the Microsoft Store and installs on a machine that has never had a .NET SDK.

@@ -193,6 +193,7 @@ because the kit reads only the manifest; both settings agree.
 
 **2026-11-12. Installed package verified.** Joe installed the x64 package
 locally. S1–S8, Start with Windows on by default (and off after unticking),
-the About version, and the windows after the DPI change all passed. The
-certification kit rerun passed; only the known "Blocked executables" false
-positive remains.
+and the About version passed. Correction (same day): that installed copy
+predated the DPI manifest, so the windows were not yet checked with the DPI
+change, and a second certification kit run still showed the DPI warning. The
+package must be rebuilt and the kit rerun.
