@@ -127,6 +127,9 @@ public sealed class HoldEngine
     {
         _host.StopTimer();
         _state = State.Idle;
+        _heldKey = 0;   // forget the key entirely once the hold is over (Hard rule 2)
         _cycle = [];
+        _cycleIndex = -1;
+        _focusToken = 0;
     }
 }

@@ -131,3 +131,10 @@ themselves.** With the spec's default of on, the first `dotnet run` would add
 the registry `Run` key when the user ticks the menu item, and the checkmark
 reflects whether the key exists. The Store build keeps default-on. PRODUCT §5
 updated.
+
+**2026-11-12. Hard-rules review (M4).** Searched all app source for
+networking, file and registry writes, logging, telemetry, clipboard, process
+launches, and elevation. Only the settings file and the startup `Run` key are
+written; nothing else was found. Two in-memory leftovers were tightened: the
+key translator now clears its character buffer after each call, and the engine
+forgets the held key code when a hold ends. Neither was ever written anywhere.

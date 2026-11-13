@@ -191,7 +191,7 @@ A struct that only declares the keyboard part is too small on 64-bit and
 
 1. **Backspace is an assumption.** Replacement assumes the typed letter sits just left of the caret. Where typing a letter triggers selection or insertion (browser address-bar autocomplete, spreadsheet cell autocomplete, auto-closing pairs in code editors), Backspace removes the wrong thing. v1 accepts this and documents it. The alternative is a "defer" design that withholds the letter until key-up or timeout; it fixes this class of bug but delays every mapped letter and complicates fast typing, so it was rejected for v1 (see decision log).
 2. **Shift is often held during replacement** (`É`, `¿`, `¡`). The injected Backspace therefore arrives as Shift+Backspace. Most apps treat it as Backspace; verify in the manual matrix. If an app misbehaves, inject Shift-up before and Shift-down after the Backspace.
-3. **Hook removal.** If Windows drops the hook, Tilde goes quiet with no error. Mitigation (M4): reinstall the hook on session unlock and resume from sleep.
+3. **Hook removal.** If Windows drops the hook, Tilde goes quiet with no error. Mitigation: `TrayContext` reinstalls the hook on session unlock and resume from sleep (`SystemEvents`), posting back to the UI thread because the hook belongs to the thread that installs it.
 4. **Elevated windows.** A non-elevated hook does not see keys typed into elevated apps. Accepted; do not "fix" by running elevated.
 5. **Caps Lock state** read from a hook thread can lag by one event. Test Caps Lock explicitly.
 6. **Dead-key layouts** (US-International and others). The `0x4` flag in §5 is what keeps them working; test with US-International enabled.

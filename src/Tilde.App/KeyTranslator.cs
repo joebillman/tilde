@@ -45,7 +45,11 @@ internal sealed class KeyTranslator
                                 TOUNICODE_NO_STATE_CHANGE, layout);
 
         // 1 = one character. 0 = none, negative = dead key, more = ligature.
-        return count == 1 ? _buffer[0] : null;
+        char? result = count == 1 ? _buffer[0] : null;
+
+        // Don't leave the last typed character sitting in memory (Hard rule 2).
+        Array.Clear(_buffer);
+        return result;
     }
 
     private static bool IsDown(int virtualKey) => (GetAsyncKeyState(virtualKey) & 0x8000) != 0;

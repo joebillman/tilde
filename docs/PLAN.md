@@ -13,7 +13,7 @@ milestone is finished when every criterion passes. Tick boxes as you go.
 | M1 Core engine | done |
 | M2 Windows integration | done (S1–S8 confirmed by Joe, 2026-11-12) |
 | M3 Tray app and settings | done (checks and S1–S8 confirmed by Joe, 2026-11-12) |
-| M4 Hardening | not started |
+| M4 Hardening | in progress |
 | M5 Packaging and Store | not started |
 | M6 School rollout | not started |
 
@@ -70,10 +70,10 @@ All work is in `Tilde.Core` and its tests. No Windows code.
 ## M4. Hardening
 
 - [ ] Run the full application matrix in `TESTING.md` §4 (human). Fix what can be fixed; list the rest under Known issues in `README.md`.
-- [ ] Reinstall the hook on session unlock and resume from sleep (`SystemEvents.SessionSwitch`, `PowerModeChanged`).
+- [x] Reinstall the hook on session unlock and resume from sleep (`SystemEvents.SessionSwitch`, `PowerModeChanged`).
 - [ ] Excluded apps: a list of process names in settings for which Tilde stays idle, editable from the tray (a simple text window is enough). Ask the human before designing anything more elaborate.
 - [ ] Idle memory and CPU check: record working-set size and confirm no measurable CPU while not typing. The target machines are small school laptops.
-- [ ] Review the code against the Hard rules in `AGENTS.md`: search for any networking, file writes other than settings, logging, or clipboard use.
+- [x] Review the code against the Hard rules in `AGENTS.md`: search for any networking, file writes other than settings, logging, or clipboard use.
 
 **Done when:** the matrix results are recorded in `docs/TESTING.md` §4, no item is marked "breaks typing", and the review finds nothing.
 
@@ -83,7 +83,9 @@ Details in `RELEASE.md`.
 
 - [ ] Human: create the Microsoft Store developer account and reserve the app name. Record the package identity values in `packaging/README.md`.
 - [ ] `AutoStart`, packaged implementation (`StartupTask`), selected automatically.
+- [ ] Confirm the installed (Store) build has Start with Windows on by default (`PRODUCT.md` §5); development builds deliberately do not.
 - [ ] MSIX manifest, visual assets, and a script that publishes and packs x64 and ARM64.
+- [ ] Replace the runtime-drawn tray icon with one drawn from a vector design, so it stays crisp at 16 px and matches the Store assets.
 - [ ] Install the package locally and rerun smoke tests S1–S8 from the installed app.
 - [ ] `PRIVACY.md` in the repo root, published at a public URL, stating `PRODUCT.md` §8.
 - [ ] Store listing text and screenshots drafted in `packaging/listing/`.

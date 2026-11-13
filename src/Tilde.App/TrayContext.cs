@@ -1,3 +1,5 @@
+using System.ComponentModel;
+using Microsoft.Win32;
 using Tilde.Core;
 
 namespace Tilde.App;
@@ -29,6 +31,8 @@ internal sealed class TrayContext : ApplicationContext
     private readonly ToolStripMenuItem _enabledItem;
     private readonly ToolStripMenuItem _autoStartItem;
     private readonly List<(ToolStripMenuItem Item, int Ms)> _delayItems = [];
+
+    private readonly SynchronizationContext _uiThread;
 
     private HowToWindow? _howTo;
     private AboutWindow? _about;
@@ -79,6 +83,17 @@ internal sealed class TrayContext : ApplicationContext
         _tray = new NotifyIcon { ContextMenuStrip = menu, Visible = true };
         _tray.DoubleClick += (_, _) => ToggleEnabled();
         UpdateMenu();
+
+        // Windows can quietly drop a low-level hook while the PC is locked or
+        // asleep, and Tilde would stop working with no error. Reinstall it when
+        // the user comes back (ARCHITECTURE.md §8.3).
+        // SystemEvents may raise these on another thread, but the hook must be
+        // installed on this one (the UI thread), so remember how to get back here.
+        // Creating the menu above installed the WinForms context.
+        _uiThread = SynchronizationContext.Current
+            ?? throw new InvalidOperationException("TrayContext must be created on the UI thread.");
+        SystemEvents.SessionSwitch += OnSessionSwitch;
+        SystemEvents.PowerModeChanged += OnPowerModeChanged;
 
         if (!_settings.HowToShown)
         {
@@ -135,6 +150,43 @@ internal sealed class TrayContext : ApplicationContext
         _tray.Text = _settings.Enabled ? "Tilde: on" : "Tilde: off";
     }
 
+    private void OnSessionSwitch(object? sender, SessionSwitchEventArgs e)
+    {
+        if (e.Reason is SessionSwitchReason.SessionUnlock
+                     or SessionSwitchReason.ConsoleConnect
+                     or SessionSwitchReason.RemoteConnect)
+        {
+            _uiThread.Post(_ => ReinstallHook(), null);
+        }
+    }
+
+    private void OnPowerModeChanged(object? sender, PowerModeChangedEventArgs e)
+    {
+        if (e.Mode == PowerModes.Resume)
+        {
+            _uiThread.Post(_ => ReinstallHook(), null);
+        }
+    }
+
+    /// <summary>
+    /// Remove and install the hook again. Cheap and harmless if the old hook
+    /// was still working, and there is no reliable way to ask Windows whether it was.
+    /// </summary>
+    private void ReinstallHook()
+    {
+        _engine.Reset();
+        _hook.Uninstall();
+        try
+        {
+            _hook.Install();
+        }
+        catch (Win32Exception)
+        {
+            // Rare. Leave Tilde idle rather than interrupting the user; the next
+            // unlock or resume tries again, and restarting Tilde also fixes it.
+        }
+    }
+
     private void ShowHowTo()
     {
         if (_howTo is null || _howTo.IsDisposed)
@@ -155,6 +207,9 @@ internal sealed class TrayContext : ApplicationContext
 
     protected override void ExitThreadCore()
     {
+        // SystemEvents events are static: unsubscribe or they keep this object alive.
+        SystemEvents.SessionSwitch -= OnSessionSwitch;
+        SystemEvents.PowerModeChanged -= OnPowerModeChanged;
         _engine.Reset();
         _hook.Dispose();
         _tray.Visible = false; // otherwise a dead icon lingers until the mouse passes over it
