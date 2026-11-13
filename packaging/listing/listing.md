@@ -93,26 +93,9 @@ information collected, no ads. Expect the lowest rating (3+ / Everyone).
 
 ## Notes for certification
 
-Tilde Keys is a packaged desktop (Win32) app that types Spanish accent
-characters. It uses a low-level keyboard hook (WH_KEYBOARD_LL) to detect when
-a letter key is held down, then replaces the typed letter with its accented
-form using SendInput (one Backspace, then the Unicode character). It requires
-runFullTrust because it is a desktop app.
+Partner Center limits this field to 500 characters. Paste this as one line
+(473 characters):
 
-It stores no keystrokes and has no network access (no internetClient
-capability). It ignores software-generated (injected) key events by design, so
-automated input tools will not trigger it; please test with a physical
-keyboard.
-
-How to test: launch Tilde Keys (a ~ icon appears in the system tray; the How
-to use window opens on first run). Open Notepad, then press and hold the `e`
-key for about a second: the `e` becomes `é`. Hold `u` to cycle ú → ü → u.
-Hold Shift+/ for ¿. A quick tap types a normal letter. Right-click the tray
-icon for settings.
-
-The Windows App Certification Kit's optional "Blocked executables" test lists
-references to process-launch APIs and strings such as "cmd" inside the .NET
-runtime files that ship with every self-contained .NET app. Tilde Keys itself
-never starts another process.
-
-Source code: https://github.com/joebillman/tilde
+```
+Desktop app with a low-level keyboard hook: holding a letter replaces it with its Spanish accent via SendInput. No network access; stores no keystrokes. It ignores injected input by design, so please test with a PHYSICAL keyboard: open Notepad, hold e ~1 s to get é; hold u to cycle ú/ü/u; Shift+/ gives ¿. Settings are in the ~ tray icon. WACK 'Blocked executables' hits are inside the bundled .NET runtime; the app starts no processes. Source: github.com/joebillman/tilde
+```
